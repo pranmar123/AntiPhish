@@ -10,11 +10,11 @@
 | Alec Holloway | ? | ?
 
 ### Description
-- Details regarding the nature of this project can be found on the wiki [homepage](https://github.com/Intro-to-SE-Spring-2020/Chirpr/wiki).
+- Details regarding the nature of this project can be found on the wiki [homepage](https://github.com/pranmar123/BroswerPlugin/wiki).
 
 
 ### Languages and Tools
-- Documentation regarding tools can be found on this wiki [page](https://github.com/Intro-to-SE-Spring-2020/Chirpr/wiki/MERN-Stack).
+- Documentation regarding tools can be found on this wiki [page](https://github.com/pranmar123/BroswerPlugin/wiki/Tools).
 
 ### Meetings Notes
-- The meeting notes can be found on this wiki [page](https://github.com/Intro-to-SE-Spring-2020/Chirpr/wiki/Stand-up-Meetings).
+- The meeting notes can be found on this wiki [page](https://github.com/pranmar123/BroswerPlugin/wiki/Stand-up-Meetings).
