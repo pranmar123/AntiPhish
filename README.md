@@ -6,7 +6,7 @@
 | Pranay Marella | pranmar123 | Project Manager
 | Nolan Royse | ? | ?
 | Abdulaziz Yafai | ? | ? 
-| Dashon Wells | ? | ?
+| Dashon Wells | dashon1 | ?
 | Alec Holloway | ? | ?
 
 ### Description
