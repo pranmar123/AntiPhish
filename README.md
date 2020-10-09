@@ -1,4 +1,4 @@
-# BroswerPlugin
+# AntiSpam
 
 
 | Name | GitHub Username | Role
