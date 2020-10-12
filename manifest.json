@@ -1,6 +1,6 @@
 {
     "name": "AntiSpam",
     "version": "0.1",
-    "description:": "A tool to prevent phising attacks",
+    "description": "A tool to prevent phising attacks",
     "manifest_version": 2
 }
