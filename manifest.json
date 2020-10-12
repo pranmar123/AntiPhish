@@ -1,6 +1,26 @@
 {
     "name": "AntiSpam",
     "version": "0.1",
-    "description": "A tool to prevent phising attacks",
+    "description": "A tool to prevent phishing attacks",
+    "permissions": ["storage","declarativeContent"],
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": false
+    },
+    "page_action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "images/logo2.png",
+            "32": "images/logo2.png",
+            "48": "images/logo2.png",
+            "128": "images/logo2.png"
+            }
+        },
+        "icons": {
+            "16": "images/logo1.png",
+            "32": "images/logo1.png",
+            "48": "images/logo1.png",
+            "128": "images/logo1.png"
+        },
     "manifest_version": 2
 }
