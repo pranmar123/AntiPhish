@@ -1,26 +1,18 @@
 {
-    "name": "AntiSpam",
-    "version": "0.1",
-    "description": "A tool to prevent phishing attacks",
-    "permissions": ["storage","declarativeContent"],
-    "background": {
-        "scripts": ["background.js"],
-        "persistent": false
-    },
+    "manifest_version": 2,
+    "name": "Change Homepage",
+    "description": "This extension changes the background image of the google homepage",
+    "version": "1.0",
+    "content_scripts": [
+    {
+        "matches": ["https://www.google.com/*"],
+        "css": ["main.css"]
+    }
+    ],
+ 
     "page_action": {
-        "default_popup": "popup.html",
-        "default_icon": {
-            "16": "images/logo2.png",
-            "32": "images/logo2.png",
-            "48": "images/logo2.png",
-            "128": "images/logo2.png"
-            }
-        },
-        "icons": {
-            "16": "images/logo1.png",
-            "32": "images/logo1.png",
-            "48": "images/logo1.png",
-            "128": "images/logo1.png"
-        },
-    "manifest_version": 2
+    "default_icon": "img.png",
+    "default_popup": "popup.html",
+    "default_title": "My custom google page!"
+ }
 }
