@@ -20,3 +20,6 @@
 
 ### Meetings Notes
 - The meeting notes can be found on this wiki [page](https://github.com/pranmar123/BroswerPlugin/wiki/Stand-up-Meetings).
+
+### Setting Project Up
+- check
