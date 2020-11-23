@@ -15,7 +15,7 @@
 ### Setup
 - The installation and setup guide can be found [here](https://github.com/pranmar123/AntiPhish/wiki/Setup).
 
-### Languages and Tools
+### Languages and Tool
 - Documentation regarding tools can be found on this wiki [page](https://github.com/pranmar123/BroswerPlugin/wiki/Tools).
 
 ### Meetings Notes
