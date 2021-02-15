@@ -4,10 +4,11 @@
 | Name | GitHub Username | Role
 | --- | --- | --- |
 | Pranay Marella | pranmar123 | Project Manager
-| Nolan Royse | NolanRoyse | Software Developer
+| Nolan Royse | NolanRoyse | Software Developer (Graduated)
 | Abdulaziz Yafai | Abdulyafai | Software Developer 
 | Dashon Wells | dashon1 | Software Developer
 | Alec Holloway | AlecHolloway | Software Developer
+| Terryuntae Griffin | crankiestflame2 | Software Developer
 
 ### Description
 - Details regarding the nature of this project can be found on the wiki [homepage](https://github.com/pranmar123/BroswerPlugin/wiki).
