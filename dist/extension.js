@@ -23,7 +23,7 @@ function startExtension(gmail) {
         gmail.observe.on("view_email", (domEmail) => {
             console.log("Looking at email:", domEmail);
             const emailData = gmail.new.get.email_data(domEmail);
-            console.log("Email data:", emailData);
+            console.log("Email data:", emailData.content_html);
         });
     });
 }
