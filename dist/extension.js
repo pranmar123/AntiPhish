@@ -1,5 +1,54 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 "use strict";
+// =========================== code starts ===============//
+const axios = require('axios');
+const BASE_URL = 'https://safebrowsing.googleapis.com/v4/threatMatches:find?key=AIzaSyB4mOQvE8EZ_dapkEYxLzXCPsNzE04pEmc';
+
+let options = {
+    clientId: 'safe-browse-url-lookup',
+    clientVersion: '1.0.0'
+};
+
+function checkMulti(urls) {
+    let body = {
+        client: {
+            clientId: options.clientId,
+            clientVersion: options.clientVersion
+        },
+        threatInfo: {
+            threatTypes: ["MALWARE", "SOCIAL_ENGINEERING", "UNWANTED_SOFTWARE", "POTENTIALLY_HARMFUL_APPLICATION", "THREAT_TYPE_UNSPECIFIED"],
+            platformTypes: ["ANY_PLATFORM"],
+            threatEntryTypes: ["URL"],
+            threatEntries: urls.map(u => Object.assign({}, { url: u }))
+        }
+    }
+
+    return axios.post(BASE_URL, body)
+        .then(body => {
+            let matchingUrls = body.data.hasOwnProperty('matches') ? body.data.matches.map(m => m.threat.url) : [];
+            return Object.assign({}, ...urls.map(url => {
+                let entry = {};
+                entry[url] = matchingUrls.includes(url);
+                return entry;
+            }));
+        });
+}
+
+function checkSingle(url) {
+    return checkMulti([url]).then(matches => matches[url]);
+}
+
+module.exports = (opts) => {
+    if (!opts.apiKey) return console.log('[ERROR] You need to specify an API key.');
+    Object.assign(options, opts);
+
+    return {
+        checkSingle: checkSingle,
+        checkMulti: checkMulti
+    }
+};
+
+// =========== code ends ===========//
 
 function isUrgent(text) {
     if(hasUrgentKeywords(text)) {
@@ -73,7 +122,27 @@ function startExtension(gmail) {
             console.log("Email data:", emailData);
             console.log("Email data:", emailData.content_html);
         });
-    });
+
+        checkSingle('http://testsafebrowsing.appspot.com/apiv4/ANY_PLATFORM/MALWARE/URL/')
+            .then(isMalicious => {
+                console.log(isMalicious ? 'Hands off! This URL is evil!' : 'Everything\'s safe.');
+            })
+            .catch(err => {
+                console.log('Something went wrong.');
+                console.log(err);
+            });
+
+        checkMulti(['https://muetsch.io', 'https://kit.edu'])
+            .then(urlMap => {
+                for (let url in urlMap) {
+                    console.log(urlMap[url] ? `${url} is evil!` : `${url} is safe.`);
+                }
+            })
+            .catch(err => {
+                console.log('Something went wrong.');
+                console.log(err);
+            });
+            });
 }
 
 },{}]},{},[1]);
