@@ -67,6 +67,11 @@ function startExtension(gmail) {
                 console.log("Has a Sense of Urgency");
             else
                 console.log("looks Good");
+            
+            // this printes the extracted contents
+            console.log("Looking at email:", domEmail);
+            console.log("Email data:", emailData);
+            console.log("Email data:", emailData.content_html);
         });
     });
 }
