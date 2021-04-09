@@ -40,7 +40,7 @@
     }
   ],
   "web_accessible_resources": [
-        "dist/gmailJsLoader.js",
-        "dist/extension.js"
+        "src/gmailJsLoader.js",
+        "src/extension.js"
     ]
 }
