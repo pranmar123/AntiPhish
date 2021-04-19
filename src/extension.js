@@ -142,20 +142,26 @@
                 }
                 console.log(urls);
                 var safeway_checker = checkSingle(urls[0]);
-                if (safeway_checker){
-                  antiPhishScore -= 60;
-                  console.log("sub 60 " + antiPhishScore);
+                if (urls != '') {
+                  if (safeway_checker){
+                    antiPhishScore -= 60;
+                    console.log("sub 60 " + antiPhishScore);
 
-
+                  }
                 }
                 var safeDomains = [".edu", ".com", ".net", ".gov", ".io", ".co", ".us", ".org", ".mil", ".info", ".xyz"];
-                if(iterateUrgentKeywordOverText(urls[0], safeDomains)) {
+                if(urls == ''){
+                  console.log("NO URLS")
                 }
-                else{
-                    antiPhishScore -= 20;
-                    console.log("sub 20 " + antiPhishScore);
-                  //alert(urls)
+                else {
+                  if(iterateUrgentKeywordOverText(urls[0], safeDomains)) {
+                  }
+                  else{
+                      antiPhishScore -= 20;
+                      console.log("sub 20 " + antiPhishScore);
+                    //alert(urls)
                 }
+              }
               console.log(antiPhishScore);
             });
     
