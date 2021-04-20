@@ -17,7 +17,7 @@
     ],
     "persistent": true
   },
-  "page_action": {
+  "browser_action": {
     "default_icon": "icons/tool-icon.png",
     "default_title": "AntiPhish",
     "default_popup": "src/page_action/page_action.html"
@@ -40,7 +40,7 @@
     }
   ],
   "web_accessible_resources": [
-        "dist/gmailJsLoader.js",
-        "dist/extension.js"
+        "src/gmailJsLoader.js",
+        "src/extension.js"
     ]
 }
