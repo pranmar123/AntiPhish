@@ -122,7 +122,8 @@
         clearInterval(loaderId);
         startExtension(window._gmailjs);
     }, 100);
-    
+
+
     // actual extension-code
     function startExtension(gmail) {
         console.log("Extension loading...");
@@ -135,9 +136,12 @@
             gmail.observe.on("view_email", (domEmail) => {
                 console.log("Looking at email:", domEmail);
                 const emailData = gmail.new.get.email_data(domEmail);
+                var antiPhishScore = 99;
                 
-                if (isUrgent(emailData.content_html) || isUrgent(emailData.subject))
-                    console.log("Has a Sense of Urgency");
+                if (isUrgent(emailData.content_html) || isUrgent(emailData.subject)){
+                    antiPhishScore -= 5;
+                    console.log("sub 5 " + antiPhishScore);
+                }
                 else
                     console.log("looks Good");
                 
@@ -145,7 +149,43 @@
                 console.log("Looking at email:", domEmail);
                 console.log("Email data:", emailData);
                 console.log("Email data:", emailData.content_html);
-                // checkGrammar(emailData.content_html);
+
+                    // Links extract
+
+                var rawHTML = emailData.content_html;
+
+                var doc = document.createElement("html");
+                doc.innerHTML = rawHTML;
+                var links = doc.getElementsByTagName("a")
+                var urls = [];
+
+                for (var i=0; i<links.length; i++) {
+                    urls.push(links[i].getAttribute("href"));
+                }
+                console.log(urls);
+                var safeway_checker = checkSingle(urls[0]);
+                if (urls != '') {
+                  if (safeway_checker){
+                    antiPhishScore -= 60;
+                    console.log("sub 60 " + antiPhishScore);
+
+                  }
+                }
+                var safeDomains = [".edu", ".com", ".net", ".gov", ".io", ".co", ".us", ".org", ".mil", ".info", ".xyz"];
+                if(urls == ''){
+                  console.log("NO URLS")
+                }
+                else {
+                  if(iterateUrgentKeywordOverText(urls[0], safeDomains)) {
+                  }
+                  else{
+                      antiPhishScore -= 20;
+                      console.log("sub 20 " + antiPhishScore);
+                    //alert(urls)
+                }
+              }
+              console.log(antiPhishScore);
+
             });
     
             checkSingle('http://testsafebrowsing.appspot.com/apiv4/ANY_PLATFORM/MALWARE/URL/')
