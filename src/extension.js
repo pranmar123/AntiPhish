@@ -145,7 +145,7 @@
                 console.log("Looking at email:", domEmail);
                 console.log("Email data:", emailData);
                 console.log("Email data:", emailData.content_html);
-                checkGrammar(emailData.content_html);
+                // checkGrammar(emailData.content_html);
             });
     
             checkSingle('http://testsafebrowsing.appspot.com/apiv4/ANY_PLATFORM/MALWARE/URL/')
