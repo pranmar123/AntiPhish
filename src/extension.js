@@ -92,6 +92,27 @@
     
     }
     
+    function checkGrammar(text) {
+      const settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "https://textgears-textgears-v1.p.rapidapi.com/readability",
+        "method": "POST",
+        "headers": {
+          "content-type": "application/x-www-form-urlencoded",
+          "x-rapidapi-key": "57e71fd5f5msh828c30a877610afp18a4c4jsn086363988ac1",
+          "x-rapidapi-host": "textgears-textgears-v1.p.rapidapi.com"
+        },
+        "data": {
+          "text": text
+        }
+      };
+      
+      $.ajax(settings).done(function (response) {
+        console.log(response);
+      });
+    }
+
     // loader-code: wait until gmailjs has finished loading, before triggering actual extensiode-code.
     const loaderId = setInterval(() => {
         if (!window._gmailjs) {
@@ -124,6 +145,7 @@
                 console.log("Looking at email:", domEmail);
                 console.log("Email data:", emailData);
                 console.log("Email data:", emailData.content_html);
+                // checkGrammar(emailData.content_html);
             });
     
             checkSingle('http://testsafebrowsing.appspot.com/apiv4/ANY_PLATFORM/MALWARE/URL/')
