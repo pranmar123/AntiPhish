@@ -7,5 +7,5 @@ function addScript(src) {
     (document.body || document.head || document.documentElement).appendChild(script);
 }
 
-addScript("src/gmailJsLoader.js");
-addScript("src/extension.js");
+addScript("dist/gmailJsLoader.js");
+addScript("dist/extension.js");
