@@ -1,43 +1,20 @@
 <!doctype html>
-
 <style type="text/css">
-	body {
-		margin:0px i !important;
-		height: 100px;
-		width: 150px;
-		border-radius: 5px;
-		background-color: rgb(160, 156, 156);
-		font-family: Arial, Helvetica, sans-serif;
+	#mainPopup {
+		padding: 10px;
+		height: 200px;
+		width: 400px;
+		font-family: Helvetica, Ubuntu, Arial, sans-serif;
 	}
-	p {
-		font-size: 4em;
-		text-align: center;
-		color: red;
-		padding-top: 0.4em;
-	}
-	article {
-		font-size: x-large;
-		font-weight: bold;
-		text-align: center;
-		color: rgb(199, 21, 21);
-	}
-	#backgroundimg {
-		background-image: url('../../icons/bgpopup.png');
-		height: 130px;
-		position: relative;
-		bottom: 40px; 
-		background-size: cover;
-		background-position: center;
-		background-repeat: no-repeat;
+	h1 {
+		font-size: 2em;
 	}
 </style>
 
-<body>
-	<article>PhishScore</article>
-	<div id="backgroundimg">
-		<script>
-
-		</script>
-		<p id="score"></p>
-	</div>
-</body>
+<div id="mainPopup">
+<h1 style="background-color:lightblue;font-size:20px;">Antiphish</h1>
+<img src="../../icons/bgpopup.png" alt="Shield Logo" width="100" height="100">
+<p id="score" style="color:black;font-size:16px;"></p>
+<script src="../extension.js"></script>
+<script src="score.js"></script>
+</div>

@@ -12,7 +12,12 @@
   },
 
   "default_locale": "en",
-  
+  "background": {
+    "scripts": [
+      "src/bg/background.js"
+    ],
+    "persistent": true
+  },
   "browser_action": {
     "default_icon": "icons/tool-icon.png",
     "default_title": "AntiPhish",
@@ -22,7 +27,8 @@
   "permissions": [
     "contextMenus",
     "tabs",
-    "https://mail.google.com/mail/"
+    "https://mail.google.com/mail/",
+    "storage"
   ],
   "content_scripts": [
     {
