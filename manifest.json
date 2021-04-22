@@ -10,13 +10,7 @@
     "128": "icons/AP-icon128.png",
     "200": "icons/antiphish-icon.png"
   },
-  "default_locale": "en",
-  "background": {
-    "scripts": [
-      "src/bg/background.js"
-    ],
-    "persistent": true
-  },
+  
   "browser_action": {
     "default_icon": "icons/tool-icon.png",
     "default_title": "AntiPhish",
@@ -29,18 +23,17 @@
   ],
   "content_scripts": [
     {
-      "matches": [
-        
-        "*://mail.google.com/*"
-      ],
-      "js": [
-        "src/inject/extensionInjector.js"
-      ],
-      "run_at": "document_start"
+        "matches": [ "*://mail.google.com/*" ],
+        "js": [
+            "src/extensionInjector.js"
+        ],
+        "run_at": "document_start"
     }
-  ],
+],
   "web_accessible_resources": [
-        "src/gmailJsLoader.js",
-        "src/extension.js"
+    "dist/gmailJsLoader.js",
+    "dist/extension.js",
+    "src/gmailJsLoader.js",
+    "src/extension.js"
     ]
 }
