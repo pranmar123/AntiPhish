@@ -1,46 +1,44 @@
 {
-  "name": "AntiPhish",
-  "version": "0.1",
-  "manifest_version": 2,
-  "description": "Rate Emails by their Potential for Spam or Phishing Attempts",
-  "homepage_url": "https://github.com/pranmar123/AntiPhish",
-  "icons": {
-    "16": "icons/AP-icon16.png",
-    "48": "icons/AP-icon48.png",
-    "128": "icons/AP-icon128.png",
-    "200": "icons/antiphish-icon.png"
-  },
-  "default_locale": "en",
-  "background": {
-    "scripts": [
-      "src/bg/background.js"
+    "manifest_version": 2,
+    "name": "AntiPhish",
+    "short_name": "gmailjsnode",
+    "version": "1.0",
+    "author": "Abdul",
+    "icons": {
+        "16": "icons/AP-icon16.png",
+        "48": "icons/AP-icon48.png",
+        "128": "icons/AP-icon128.png",
+        "200": "icons/antiphish-icon.png"
+      },
+
+    "description": "A minimal extension which demonstrates how to create a extension with Gmail.JS and NodeJS-based bundling.",
+
+    "browser_action": {
+        "default_icon": "icons/tool-icon.png",
+        "default_title": "AntiPhish",
+        "default_popup": "src/page_action/page_action.html"
+      },
+
+    "content_scripts": [
+        {
+            "matches": [ "*://mail.google.com/*" ],
+            "js": [
+                "src/extensionInjector.js"
+            ],
+            "run_at": "document_start"
+        }
     ],
-    "persistent": true
-  },
-  "browser_action": {
-    "default_icon": "icons/tool-icon.png",
-    "default_title": "AntiPhish",
-    "default_popup": "src/page_action/page_action.html"
-  },
-  "permissions": [
-    "contextMenus",
-    "tabs",
-    "https://mail.google.com/mail/"
-  ],
-  "content_scripts": [
-    {
-      "matches": [
-        
-        "*://mail.google.com/*"
-      ],
-      "js": [
-        "src/inject/extensionInjector.js"
-      ],
-      "run_at": "document_start"
-    }
-  ],
-  "web_accessible_resources": [
+
+    "web_accessible_resources": [
+        "dist/gmailJsLoader.js",
+        "dist/extension.js",
         "src/gmailJsLoader.js",
         "src/extension.js"
+    ],
+
+    "permissions": [
+        "contextMenus",
+        "tabs",
+        "https://mail.google.com/mail/"
     ]
 }
