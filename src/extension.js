@@ -121,6 +121,8 @@ function checkGrammar(text) {
 }
 
 // actual extension-code
+var sscore = 0;
+var store = 0;
 function startExtension(gmail) {
     console.log("Extension loading...");
     window.gmail = gmail;
@@ -186,7 +188,8 @@ function startExtension(gmail) {
             }
             console.log(antiPhishScore);
 
-            
+            sscore = antiPhishScore;
+            localStorage.setItem("score", antiPhishScore);
 
 
 
